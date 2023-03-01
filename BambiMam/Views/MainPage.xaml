@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BambiMam.Views.MainPage"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+
+    <Grid HorizontalOptions="FillAndExpand" 
+               VerticalOptions="FillAndExpand">
+        <Image Aspect="AspectFill" Source="couleur.png" 
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="FillAndExpand"/>
+        <BoxView BackgroundColor="#A1A1A1A1" Opacity="0.9"/>
+        <SwipeView BackgroundColor="Transparent">
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItemView>
+                        <Grid>
+                            <StackLayout Spacing="20" Padding="35" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMemu}" VerticalOptions="CenterAndExpand">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="CloseSwiep"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <pv:PancakeView BackgroundColor="#557ED2" HeightRequest="30" WidthRequest="30" CornerRadius="16" VerticalOptions="Center" HorizontalOptions="Start" >
+                                                <Image Source="{Binding Icon}" HeightRequest="15" 
+                                                       WidthRequest="15" VerticalOptions="Center" HorizontalOptions="Center" />
+                                            </pv:PancakeView>
+                                            <Label Text="{Binding Name}"  TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                    </SwipeItemView>
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            <Grid x:Name="swipContent">
+                <pv:PancakeView x:Name="pancke" BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Padding="30">
+                            <Image Source="menu_1.png"  HeightRequest="25" HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="openSwip"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image Source="settings.png" HeightRequest="40" HorizontalOptions="End"/>
+                        </Grid>
+                        <StackLayout Grid.Row="1" Padding="50,30">
+                            <Label Text="Ciao Benvenuto!" TextColor="Black" FontSize="25" FontAttributes="Bold"/>
+                            <Label Text="Scegli il parametro che preferisci in base alle tue esigenze" FontSize="18"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Spacing="20" Padding="50,0,0,0">
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" 
+                                            VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+                                            BackgroundColor="#820ad1">
+
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="Add.png" WidthRequest="18"/>
+                                    <Label  Text="Pannolini" TextColor="White" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Pannolini_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </pv:PancakeView>
+
+
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" 
+                                            VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+                                            BackgroundColor="#820ad1">
+
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="add.png" WidthRequest="18"/>
+                                    <Label  Text="Sonno" TextColor="White" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Sonno_Tapped1" />
+                                    </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </pv:PancakeView>
+
+
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" 
+                                            VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+                                            BackgroundColor="#820ad1">
+
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="add.png" WidthRequest="18"/>
+                                    <Label  Text="Alattamento" TextColor="White" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Alattamento_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </pv:PancakeView>
+
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" 
+                                            VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+                                            BackgroundColor="#820ad1">
+
+                                <StackLayout Spacing="20" Orientation="Horizontal" >
+                                    <Image Source="add.png" WidthRequest="18" />
+                                    <Label  Text="Svezzamento" TextColor="White" VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Svezzamento_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </pv:PancakeView>
+
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="4" Padding="50,0">
+                            <Label  Text="Lista predefinita" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <pv:PancakeView  Padding="10" BackgroundColor="Azure"  CornerRadius="16" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="Mother.png" HeightRequest="50"/>
+                                            <Label Text="Alattamento" TextColor="Black" FontSize="12" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                            <!--<Label Grid.Row="1" Text="Bammino/a" TextColor="Black"  FontSize="12" VerticalOptions="End"/>-->
+                                    </Grid>
+                                </pv:PancakeView>
+
+                                <pv:PancakeView  Grid.Column="1" Padding="10" BackgroundColor="Azure"  CornerRadius="16" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="baby.png" HeightRequest="50"/>
+                                            <Label Text="Sonno" TextColor="Black" FontSize="12" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <!--<Label Grid.Row="1" Text="Bammino/a" TextColor="Black"  FontSize="12" VerticalOptions="End"/>-->
+                                    </Grid>
+                                </pv:PancakeView>
+                            </Grid>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Padding="50,0">
+                            <!--<Label  Text="Lista predefinita" TextColor="Black" FontSize="20" FontAttributes="Bold"/>-->
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <pv:PancakeView  Padding="10" BackgroundColor="Azure"  CornerRadius="16" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="Biberon.png" HeightRequest="50"/>
+                                            <Label Text="Alattamento" TextColor="Black" FontSize="12" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <!--<Label Grid.Row="1" Text="Bammino/a" TextColor="Black"  FontSize="12" VerticalOptions="End"/>-->
+                                    </Grid>
+                                </pv:PancakeView>
+
+                                <pv:PancakeView  Grid.Column="1" Padding="10" BackgroundColor="Azure"  CornerRadius="16" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="baby.png" HeightRequest="50"/>
+                                            <Label Text="Svezzamento" TextColor="Black" FontSize="12" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <!--<Label Grid.Row="1" Text="Bammino/a" TextColor="Black"  FontSize="12" VerticalOptions="End"/>-->
+                                    </Grid>
+                                </pv:PancakeView>
+                            </Grid>
+                        </StackLayout>
+
+                    </Grid>
+                </pv:PancakeView> 
+            </Grid>
+        </SwipeView>
+    </Grid>
+</ContentPage>

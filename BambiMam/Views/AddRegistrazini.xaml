@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BambiMam.Views.AddRegistrazini">
+    <ContentPage.Content>
+        <StackLayout Margin="8,200,8,8">
+            <Frame BorderColor="#8b3bda" CornerRadius="16" Margin="8,8,8,8">
+                <StackLayout>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Pipi" FontSize="Large" Grid.Row="0" Grid.Column="0"/>
+                            <CheckBox x:Name="PipiEntry"  CheckedChanged="CheckBox_CheckedChanged" Grid.Row="0" Grid.Column="1"/>
+                            <Label x:Name="Conferma" FontSize="Large" Grid.Row="0" Grid.Column="2"/>
+                        </Grid>
+
+                        <!--<Label Text="Pipi"/> --><!--Aggiunger la ceckeBox --><!--
+                        <Entry  x:Name="PipiEntry" TextTransform="Default" />
+                        <CheckBox CheckedChanged="CheckBox_CheckedChanged"/>-->
+                    </StackLayout>
+
+                    <StackLayout Margin="0,5,8,8">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Colore della Cacca" FontSize="Large" Grid.Row="0" Grid.Column="0" Margin="0,15,0,0"/>
+                            <Picker  x:Name="ColoriCacca_Picker" SelectedItem="{Binding nameToColor}" FontSize="Large" Grid.Row="0" Grid.Column="1"/>
+                        </Grid>
+                        
+                        
+                    </StackLayout>
+
+                    <StackLayout  Margin="0,5,8,8">
+                        <Label Text="Data e Ora" FontSize="Large"/>
+                        <Grid ColumnDefinitions="Auto" RowDefinitions="*">
+                            <DatePicker x:Name="Data_InserimentoEntry"  Grid.Row="0" Grid.Column="0" Format="d"  VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20"  />
+                            <!--<Entry x:Name="Ore" TextTransform="Uppercase"/>-->
+                            <TimePicker x:Name="Ore" Grid.Column="1" TextTransform="Default"  VerticalOptions="Center" HorizontalOptions="Center" Format="T" FontSize="20"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+
+            <Frame>
+                <StackLayout Margin="8,100,8,8">
+                    <Button Text="Salva" CornerRadius="16"   BorderColor="#820ad1" BorderWidth="2" BackgroundColor="Transparent" TextColor="#820ad1" Clicked="Save_CLicakd"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

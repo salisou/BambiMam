@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BambiMam.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Style Bottoni Avanti/Indietro e Label Totale Righe -->
+
+                <ResourceDictionary>
+
+
+                    <!-- Viola #6b45c4 -->
+                    <!-- Blu primario #4071E9 -->
+                    <!-- Blu Secondario #668DED -->
+                    <!-- Blu Scritte #E2EAFC-->
+                    <!--https://colorhunt.co/palette/06283d1363df47b5ffdff6ff nero blu bluchiaro quasiBianco-->
+
+                    <!--La definizione dei colori utilizzati nei stili-->
+                    <!--<Color x:Key="title-back-primary-color">#6b45c4</Color>-->
+                    <Color x:Key="title-back-primary-color">#6b45c4</Color>
+                    <Color x:Key="title-primary-color">#E2EAFC</Color>
+                    <Color x:Key="generalPrimaryColor">#4071E9</Color>
+                    <Color x:Key="generalSecondColor">#E2EAFC</Color>
+                    <Color x:Key="generalLabelTextColor"></Color>
+                    <Color x:Key="generalTextColor" >Gray</Color>
+                    <Color x:Key="generalPRimaryBlackLabelTextColor">Black</Color>
+
+
+                    <!--Stile dei FRAME -->
+                    <Style x:Key="FrameStyle" TargetType="Frame">
+                        <!--Prima il colore era DodgerBlue -->
+                        <Setter Property="BorderColor" Value="{StaticResource title-back-primary-color}"/>
+                        <Setter Property="Margin" Value="0,5,0,0"/>
+                    </Style>
+
+                    <!--Stile label Titolo-->
+                    <Style x:Key="LabelTitolo" TargetType="Label">
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="TextColor" Value="#FFFFFF"/>
+                    </Style>
+
+                    <!--Stile dello stato NORMALE del BOTTONE SINCRONIZZA-->
+                    <Style x:Key="sincronizzaNormalStateStyle" BaseResourceKey="baseButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#70AD47"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="BorderColor" Value="#507E32"/>
+                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="CornerRadius" Value="6"/>
+                        <Setter Property="Margin" Value="8,8,8,4"/>
+                    </Style>
+
+                    <!--Stile bottone totale righe-->
+                    <Style x:Key="btnTotaleRighe" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="{StaticResource Key=generalSecondColor}" />
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalPrimaryColor}" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="CornerRadius" Value="50" />
+                        <Setter Property="WidthRequest" Value="50" />
+                        <Setter Property="BorderColor" Value="{StaticResource Key=generalPrimaryColor}"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                        <Setter Property="Margin" Value="5,0,5,5"/>
+                    </Style>
+
+                    <!--Stile per lo stato NORMALE per i BOTTONI PRIMARI-->
+                    <Style x:Key="primaryNormalButtonStyle" BaseResourceKey="baseButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="{StaticResource Key=generalPrimaryColor}" />
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalSecondColor}"/>
+                        <Setter Property="CornerRadius" Value="6" />
+                    </Style>
+
+                    <!--Stile per lo stato  NORMALI per i BOTTONI SECONDARI-->
+                    <Style x:Key="secondaryNormalButtonStyle" BaseResourceKey="baseButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="{StaticResource  Key=generalSecondColor}" />
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalPrimaryColor}"/>
+                        <Setter Property="BorderColor" Value="{StaticResource Key=generalPrimaryColor}"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="CornerRadius" Value="6" />
+                    </Style>
+
+                    <!--Stile BOTTONI LISTE-->
+                    <Style x:Key="listButtonStyle" TargetType="Button">
+                        <Setter Property="WidthRequest" Value="100" />
+                        <Setter Property="HeightRequest" Value="50" />
+                        <Setter Property="BackgroundColor" Value="{StaticResource Key=generalPrimaryColor}" />
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalSecondColor}"/>
+                        <Setter Property="CornerRadius" Value="6" />
+                    </Style>
+
+                    <!--Stile per lo stato FOCUSED PER I BOTTONI-->
+                    <Style x:Key="focusedButtonStyle" BaseResourceKey="baseButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#b3d3ea"/>
+                        <Setter Property="CornerRadius" Value="6" />
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalTextColor}"/>
+                    </Style>
+
+                    <!--Stile per le LABEL ERRORE-->
+                    <Style x:Key="labelErroreStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="TextColor" Value="Red"/>
+                        <Setter Property="IsVisible" Value="False"/>
+                    </Style>
+
+                    <!--Stile per le LABEL PRIMARIE-->
+                    <Style x:Key="labelPrimarySyle" TargetType="Label">
+
+                    </Style>
+
+                    <!--Stile per le LABEL SECONDARIE-->
+                    <Style x:Key="labelSecondaryStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="TextColor" Value="{StaticResource Key=generalLabelTextColor}"/>
+                    </Style>
+
+
+                    <!--Stile della ToolBar-->
+                    <!--<Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
+                        <Setter Property="BarBackgroundColor" Value="{StaticResource Key=generalPrimaryColor}" />
+                        <Setter Property="BarTextColor" Value="{StaticResource Key=title-primary-color}" />
+                        <Setter Property="Title" Value="18"/>
+                    </Style>-->
+
+                    <!--Stile per il bottone Sincronizza-->
+                    <Style x:Key="ButtonSincronizza" TargetType="Button">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <!-- STABILISCI UNO STATO CHE CAMBIA E TORNA AL NORMALE IN BASE ALLA SCELTA DELLA FUNZIONE-->
+                                <VisualStateGroup x:Name="CommonStates" >
+                                    <!-- Definisci lo stato base del bottone, Dici che lo stato base e normale-->
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=sincronizzaNormalStateStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+
+                    <!--Stile per i bottoni Primari-->
+                    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <!-- STABILISCI UNO STATO CHE CAMBIA E TORNA AL NORMALE IN BASE ALLA SCELTA DELLA FUNZIONE-->
+                                <VisualStateGroup x:Name="CommonStates" >
+                                    <!-- Definisci lo stato base del bottone, Dici che lo stato base e normale-->
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=primaryNormalButtonStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <!-- Definisci lo stato base del bottone, Dici che lo stato pressed e di colore bianco-->
+                                    <VisualState x:Name="Focused">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=focusedButtonStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+
+                    <!--Stile per i bottoni secondari-->
+                    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+
+                                <!-- STABILISCI UNO STATO CHE CAMBIA E TORNA AL NORMALE IN BASE ALLA SCELTA DELLA FUNZIONE-->
+                                <VisualStateGroup x:Name="CommonStates" >
+                                    <!-- Definisci lo stato base del bottone, Dici che lo stato base e normale-->
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=secondaryNormalButtonStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <!-- Definisci lo stato base del bottone, Dici che lo stato pressed e di colore bianco-->
+                                    <VisualState x:Name="Focused">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=focusedButtonStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+
+                    <Style x:Key="ListButton" TargetType="Button">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Style" Value="{StaticResource Key=listButtonStyle}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        <ResourceDictionary>
+            <Color x:Key="Primary">#820ad1</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

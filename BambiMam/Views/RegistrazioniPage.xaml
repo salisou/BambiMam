@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BambiMam.Views.RegistrazioniPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" IconImageSource="add.png" Clicked="Add_Clicked" />
+    </ContentPage.ToolbarItems>
+
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" BackgroundColor="Transparent" Padding="15" Spacing="20">
+
+                <!--<StackLayout Orientation="Horizontal">
+                    <ImageButton HeightRequest="50" WidthRequest="50" BackgroundColor="#820ad1" CornerRadius="50" Source="Home_1.png" Padding="10" HorizontalOptions="StartAndExpand" Clicked="MainPage_Clicked" />
+                    <ImageButton HeightRequest="50" WidthRequest="50" BackgroundColor="#8b3bda" CornerRadius="50" Source="add.png" Padding="10"  Clicked="Add_Clicked" />
+                    <ImageButton HeightRequest="50" WidthRequest="50" BackgroundColor="#8b3bda" CornerRadius="50" Source="Settings_1.png" Padding="10"  />
+                    <ImageButton HeightRequest="50" WidthRequest="50" BackgroundColor="#8b3bda" CornerRadius="50" Source="question_2.png" Padding="10" />
+                </StackLayout>-->
+                <Label Text="Ecco La lista salavata" FontSize="24" FontAttributes="Bold"  HorizontalOptions="StartAndExpand"/>
+                <!--<SearchBar Placeholder="Rcerca" FontSize="24" TextChanged="SearchBar_TextChanged"/>-->
+                <Frame  HeightRequest="580" CornerRadius="16" BorderColor="#8b3bda" BackgroundColor="White">
+                    <StackLayout >
+                        <ScrollView>
+                            <CollectionView x:Name="MyCollectionView" SelectionMode="Single" Margin="8,8,8,8">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <SwipeView>
+                                            <SwipeView.RightItems>
+                                                <SwipeItems>
+                                                    <SwipeItem Text="Cancella"
+                                                               IconImageSource="delete_1.png"
+                                                               BackgroundColor="Red"
+                                                               CommandParameter="{Binding .}"
+                                                               Invoked="SwiperItem_Invoked_1"/>
+                                                </SwipeItems>
+                                            </SwipeView.RightItems>
+                                            <SwipeView.LeftItems>
+                                                <SwipeItem Text="Modifica"
+                                                               IconImageSource="edit.png"
+                                                               BackgroundColor="Green"
+                                                               CommandParameter="{Binding .}"
+                                                               Invoked="SwiperItem_Invoked"/>
+                                            </SwipeView.LeftItems>
+                                            <Grid RowSpacing="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="10" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="{Binding N_Pannolini}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0"/>
+                                                <Label Text="{Binding Pipi}" FontAttributes="Bold"  Grid.Column="1" Grid.Row="0"/>
+                                                <Label Text="{Binding Colori_Cacca}" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
+                                                <Label Text="{Binding Data_Inserimento}" FontAttributes="Bold" Grid.Column="2" Grid.Row="0"/>
+                                                <Label Text="{Binding Ore}" FontAttributes="Bold" Grid.Column="2" Grid.Row="1"/>
+                                            </Grid>
+                                        </SwipeView>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

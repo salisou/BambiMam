@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BambiMam.Views.AddSonno">
+    <NavigationPage.TitleView>
+        <StackLayout Margin="0" Spacing="0">
+            <Label x:Name="lblTitolo" Text="Dettaglio di" Style="{StaticResource Key=LabelTitolo}"/>
+            <Label x:Name="lblDescrizioneRiga" Margin="0" FontSize="14" TextColor="{StaticResource generalSecondColor}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tblSearchQryFind" Clicked="SearchQryFind"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView x:Name="scrollViewVistaDettaglio" VerticalScrollBarVisibility="Always">
+            <StackLayout>
+                <!--Articolo-->
+                <StackLayout x:Name="stkCodArt" Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblCodArt"  FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <StackLayout Orientation="Horizontal" >
+                        <Entry x:Name="txtCodArt" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                    </StackLayout>
+                    <Label x:Name="lblDescrizione" FontSize="16" IsVisible="False" TextColor="{StaticResource  generalLabelTextColor}"/>
+                    <Label x:Name="lblCodArtErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--Matricola/NumeroDiSerie-->
+                <StackLayout x:Name="stkNrSerie"  Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblNrSerie"  FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <Entry x:Name="txtNrSerie" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused"/>
+                    <Label x:Name="lblNrSerieErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--Lotto-->
+                <StackLayout x:Name="stkNrLotto" Orientation="Vertical" Margin="5,0,5,0" Spacing="0" >
+                    <Label x:Name="lblLotto"  FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <Entry x:Name="txtNrLotto" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused"  />
+                    <Label x:Name="lblNrLottoErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--DataLotto-->
+                <StackLayout x:Name="stkDtLotto"  Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblDtLotto"  FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <Entry x:Name="txtDtLotto" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                    <Label x:Name="lblDtLottoErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--Quantita-->
+                <StackLayout x:Name="stkQta"  Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblQta"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="lblUM" FontSize="16" IsVisible="False" TextColor="{StaticResource generalLabelTextColor}" />
+                        <Entry  x:Name="txtQta" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused"  Unfocused="EntryUnFocused"/>
+                    </StackLayout>
+                    <Label x:Name="lblQtaErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--CoordinataDiOrigine-->
+                <StackLayout  x:Name="stkM1"  Margin="5,0,5,0" Spacing="0">
+                    <Grid Grid.Column="0"  RowDefinitions="*" ColumnDefinitions="*">
+
+                        <StackLayout Grid.Column="0" Grid.Row="0" Orientation="Vertical" Spacing="0">
+                            <Label x:Name="lblM1" FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtM1"  HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                            <Label x:Name="lblM1Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkC1" Grid.Column="1" Grid.Row="0" Orientation="Vertical" Spacing="0" >
+                            <Label x:Name="lblC1" FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtC1" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                            <Label x:Name="lblC1Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkL1" Grid.Column="2" Grid.Row="0" Orientation="Vertical" Spacing="0" >
+                            <Label x:Name="lblL1" FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtL1"  HorizontalOptions="FillAndExpand" FontSize="16"  Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                            <Label x:Name="lblL1Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+                <!--CoordinataDiDestinazione-->
+                <StackLayout x:Name="stkM2" Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Grid  RowDefinitions="*" ColumnDefinitions="*">
+
+                        <StackLayout Grid.Row="0" Grid.Column="0" Spacing="0" Orientation="Vertical" >
+                            <Label x:Name="lblM2"  FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtM2"  HorizontalOptions="FillAndExpand" FontSize="16"  Focused="EntryFocused" Unfocused="EntryUnFocused"/>
+                            <Label x:Name="lblM2Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkC2" Grid.Row="0" Grid.Column="1" Spacing="0" Orientation="Vertical" >
+                            <Label x:Name="lblC2"  FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtC2" HorizontalOptions="FillAndExpand" FontSize="16"  Focused="EntryFocused" Unfocused="EntryUnFocused"  />
+                            <Label x:Name="lblC2Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="stkL2" Grid.Row="0" Grid.Column="2" Spacing="0" Orientation="Vertical">
+                            <Label x:Name="lblL2" FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                            <Entry x:Name="txtL2"  FontSize="16" HorizontalOptions="FillAndExpand"   Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                            <Label x:Name="lblL2Err" Style="{StaticResource labelErroreStyle}"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+                <!--NumeroDelDocumento-->
+                <StackLayout x:Name="stkNrDoc"  Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblNrDoc"  FontSize="12"  TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <Entry x:Name="txtNrDoc" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused"/>
+                    <Label x:Name="lblNrDocErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+                <!--DataDiRiferimento-->
+                <StackLayout x:Name="stkDtRif" Orientation="Vertical" Margin="5,0,5,0" Spacing="0">
+                    <Label x:Name="lblDtRif" FontSize="12" TextColor="{StaticResource generalPRimaryBlackLabelTextColor}"/>
+                    <Entry x:Name="txtDtRif" HorizontalOptions="FillAndExpand" FontSize="16" Focused="EntryFocused" Unfocused="EntryUnFocused" />
+                    <Label x:Name="lblDtRifErr" Style="{StaticResource labelErroreStyle}"/>
+                </StackLayout>
+
+                <!--DataPicker-->
+                <StackLayout x:Name="stkDataPicker"  Orientation="Vertical" Margin="5,0,5,0" Spacing="0" IsVisible="False">
+                    <DatePicker x:Name="datePickerXaml" HorizontalOptions="FillAndExpand" FontSize="16" IsVisible="False"  DateSelected="DatePickerXaml_DateChanged" />
+                </StackLayout>
+
+
+                <Button x:Name="btnSalvaRegistrazione" Clicked="btnSalvaRegistrazione_Clicked" Text="Salva" Margin="5,5,5,5" Visual="Material" IsTabStop="True"  Style="{StaticResource PrimaryButtonStyle}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
